@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Employee Daily Work</title>
+
+    <style>
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            padding: 15px;
+
+            font-family: Arial, sans-serif;
+
+            background: #f1f5f9;
+        }
+
+        .container {
+
+            width: 100%;
+            max-width: 550px;
+
+            margin: auto;
+
+            background: white;
+
+            padding: 22px;
+
+            border-radius: 15px;
+
+            box-shadow: 0 4px 15px rgba(0,0,0,0.10);
+        }
+
+        h1 {
+
+            text-align: center;
+
+            color: #123b5d;
+
+            margin-bottom: 5px;
+        }
+
+        .subtitle {
+
+            text-align: center;
+
+            color: #666;
+
+            margin-bottom: 25px;
+        }
+
+        label {
+
+            display: block;
+
+            margin-top: 15px;
+            margin-bottom: 7px;
+
+            font-weight: bold;
+        }
+
+        input,
+        select,
+        textarea {
+
+            width: 100%;
+
+            padding: 13px;
+
+            font-size: 16px;
+
+            border: 1px solid #ccc;
+
+            border-radius: 8px;
+        }
+
+        textarea {
+
+            min-height: 90px;
+
+            resize: vertical;
+        }
+
+        input:focus,
+        select:focus,
+        textarea:focus {
+
+            outline: none;
+
+            border-color: #123b5d;
+        }
+
+        button {
+
+            width: 100%;
+
+            margin-top: 25px;
+
+            padding: 15px;
+
+            border: none;
+
+            border-radius: 9px;
+
+            background: #123b5d;
+
+            color: white;
+
+            font-size: 17px;
+
+            font-weight: bold;
+
+            cursor: pointer;
+        }
+
+        button:hover {
+
+            background: #0d2d47;
+        }
+
+        .success {
+
+            margin-top: 15px;
+
+            padding: 12px;
+
+            text-align: center;
+
+            background: #e8f5e9;
+
+            color: #2e7d32;
+
+            border-radius: 8px;
+        }
+
+        @media (max-width: 480px) {
+
+            body {
+                padding: 10px;
+            }
+
+            .container {
+                padding: 18px;
+            }
+
+            h1 {
+                font-size: 24px;
+            }
+
+            input,
+            select,
+            textarea {
+                font-size: 16px;
+            }
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+<div class="container">
+
+    <h1>
+        Employee Daily Work
+    </h1>
+
+    <div class="subtitle">
+        Marketing & Calling Team
+    </div>
+
+
+    <form action="/submit" method="POST">
+
+
+        <!-- Employee Name -->
+
+        <label>
+            Employee Name
+        </label>
+
+        <input
+            type="text"
+            name="employee_name"
+            placeholder="Enter your name"
+            required
+        >
+
+
+        <!-- Department -->
+
+        <label>
+            Department
+        </label>
+
+        <select
+            name="department"
+            required
+        >
+
+            <option value="">
+                Select Department
+            </option>
+
+            <option value="Marketing">
+                Marketing
+            </option>
+
+            <option value="Calling">
+                Calling
+            </option>
+
+        </select>
+
+
+        <!-- Today's Work -->
+
+        <label>
+            Today's Work
+        </label>
+
+        <textarea
+            name="work"
+            placeholder="What work did you do today?"
+            required
+        ></textarea>
+
+
+        <!-- Calls -->
+
+        <label>
+            Calls Made
+        </label>
+
+        <input
+            type="number"
+            name="calls"
+            placeholder="Enter number of calls"
+            min="0"
+        >
+
+
+        <!-- Leads -->
+
+        <label>
+            Leads Generated
+        </label>
+
+        <input
+            type="number"
+            name="leads"
+            placeholder="Enter number of leads"
+            min="0"
+        >
+
+
+        <!-- Follow-ups -->
+
+        <label>
+            Follow-ups
+        </label>
+
+        <input
+            type="number"
+            name="followups"
+            placeholder="Enter number of follow-ups"
+            min="0"
+        >
+
+
+        <!-- Working Hours -->
+
+        <label>
+            Working Hours
+        </label>
+
+        <input
+            type="number"
+            name="hours"
+            placeholder="Example: 8"
+            min="0"
+            step="0.5"
+        >
+
+
+        <!-- Status -->
+
+        <label>
+            Status
+        </label>
+
+        <select
+            name="status"
+            required
+        >
+
+            <option value="">
+                Select Status
+            </option>
+
+            <option value="Completed">
+                Completed
+            </option>
+
+            <option value="Pending">
+                Pending
+            </option>
+
+        </select>
+
+
+        <!-- Remarks -->
+
+        <label>
+            Remarks
+        </label>
+
+        <textarea
+            name="remarks"
+            placeholder="Any additional remarks?"
+        ></textarea>
+
+
+        <!-- Submit -->
+
+        <button type="submit">
+            Submit Today's Work
+        </button>
+
+
+    </form>
+
+</div>
+
+</body>
+
+</html>
