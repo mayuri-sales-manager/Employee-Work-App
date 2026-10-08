@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Manager Login</title>
+
+    <style>
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            padding: 20px;
+
+            min-height: 100vh;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            font-family: Arial, sans-serif;
+
+            background: #eef3f7;
+        }
+
+        .login-container {
+
+            width: 100%;
+            max-width: 400px;
+
+            background: white;
+
+            padding: 30px 25px;
+
+            border-radius: 16px;
+
+            box-shadow: 0 5px 20px rgba(0,0,0,0.12);
+        }
+
+        .title {
+
+            text-align: center;
+
+            color: #123b5d;
+
+            margin-bottom: 8px;
+        }
+
+        .subtitle {
+
+            text-align: center;
+
+            color: #666;
+
+            margin-bottom: 25px;
+        }
+
+        label {
+
+            display: block;
+
+            margin-top: 15px;
+            margin-bottom: 7px;
+
+            font-weight: bold;
+        }
+
+        input {
+
+            width: 100%;
+
+            padding: 14px;
+
+            font-size: 16px;
+
+            border: 1px solid #ccc;
+
+            border-radius: 8px;
+        }
+
+        input:focus {
+
+            outline: none;
+
+            border-color: #123b5d;
+        }
+
+        button {
+
+            width: 100%;
+
+            margin-top: 25px;
+
+            padding: 14px;
+
+            font-size: 17px;
+
+            font-weight: bold;
+
+            color: white;
+
+            background: #123b5d;
+
+            border: none;
+
+            border-radius: 8px;
+
+            cursor: pointer;
+        }
+
+        button:hover {
+
+            background: #0d2d47;
+        }
+
+        .error {
+
+            margin-top: 15px;
+
+            padding: 10px;
+
+            text-align: center;
+
+            color: #b00020;
+
+            background: #ffe5e5;
+
+            border-radius: 8px;
+        }
+
+        .employee-link {
+
+            display: block;
+
+            margin-top: 20px;
+
+            text-align: center;
+
+            color: #123b5d;
+
+            text-decoration: none;
+        }
+
+        @media (max-width: 480px) {
+
+            .login-container {
+
+                padding: 25px 20px;
+            }
+
+            .title {
+
+                font-size: 25px;
+            }
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+    <div class="login-container">
+
+        <h1 class="title">
+            Manager Login
+        </h1>
+
+        <p class="subtitle">
+            Employee Work Management
+        </p>
+
+
+        <form method="POST">
+
+            <label>
+                Username
+            </label>
+
+            <input
+                type="text"
+                name="username"
+                placeholder="Enter username"
+                required
+            >
+
+
+            <label>
+                Password
+            </label>
+
+            <input
+                type="password"
+                name="password"
+                placeholder="Enter password"
+                required
+            >
+
+
+            <button type="submit">
+                Login
+            </button>
+
+        </form>
+
+
+        {% if error %}
+
+        <div class="error">
+            {{ error }}
+        </div>
+
+        {% endif %}
+
+
+        <a href="/" class="employee-link">
+            ← Employee Work Form
+        </a>
+
+    </div>
+
+</body>
+
+</html>
