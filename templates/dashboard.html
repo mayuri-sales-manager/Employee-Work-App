@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Manager Dashboard</title>
+
+    <style>
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: #f1f5f9;
+            color: #222;
+        }
+
+        header {
+            background: #123b5d;
+            color: white;
+            padding: 20px;
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 25px;
+        }
+
+        header p {
+            margin: 6px 0 0;
+        }
+
+        .container {
+            width: 95%;
+            max-width: 1200px;
+            margin: 20px auto;
+        }
+
+        .top-bar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+
+        .logout {
+            background: #d32f2f;
+            color: white;
+            padding: 10px 15px;
+            border-radius: 7px;
+            text-decoration: none;
+        }
+
+        .cards {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 15px;
+            margin-bottom: 25px;
+        }
+
+        .card {
+            background: white;
+            padding: 20px;
+            border-radius: 12px;
+            text-align: center;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.08);
+        }
+
+        .card h2 {
+            margin: 5px 0;
+            color: #123b5d;
+        }
+
+        .table-box {
+            background: white;
+            border-radius: 12px;
+            padding: 15px;
+            overflow-x: auto;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            min-width: 900px;
+        }
+
+        th,
+        td {
+            padding: 10px;
+            border-bottom: 1px solid #ddd;
+            text-align: left;
+        }
+
+        th {
+            background: #123b5d;
+            color: white;
+        }
+
+        .empty {
+            text-align: center;
+            padding: 30px;
+            color: #666;
+        }
+
+        @media (max-width: 700px) {
+
+            .cards {
+                grid-template-columns: 1fr;
+            }
+
+            .top-bar {
+                align-items: flex-start;
+                flex-direction: column;
+            }
+
+            header h1 {
+                font-size: 22px;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+<header>
+
+    <h1>Manager Dashboard</h1>
+
+    <p>
+        Welcome, {{ manager_name }}
+    </p>
+
+</header>
+
+
+<div class="container">
+
+    <div class="top-bar">
+
+        <strong>
+            Employee Work Records
+        </strong>
+
+        <a href="/manager-logout"
+           class="logout">
+            Logout
+        </a>
+
+    </div>
+
+
+    <!-- SUMMARY CARDS -->
+
+    <div class="cards">
+
+        <div class="card">
+
+            <div>Total Entries</div>
+
+            <h2>
+                {{ total_entries }}
+            </h2>
+
+        </div>
+
+
+        <div class="card">
+
+            <div>Marketing</div>
+
+            <h2>
+                {{ marketing_count }}
+            </h2>
+
+        </div>
+
+
+        <div class="card">
+
+            <div>Calling</div>
+
+            <h2>
+                {{ calling_count }}
+            </h2>
+
+        </div>
+
+    </div>
+
+
+    <!-- WORK TABLE -->
+
+    <div class="table-box">
+
+        {% if work_data %}
+
+        <table>
+
+            <thead>
+
+                <tr>
+
+                    <th>Date</th>
+
+                    <th>Employee</th>
+
+                    <th>Department</th>
+
+                    <th>Today's Work</th>
+
+                    <th>Calls</th>
+
+                    <th>Leads</th>
+
+                    <th>Follow-ups</th>
+
+                    <th>Hours</th>
+
+                    <th>Status</th>
+
+                    <th>Remarks</th>
+
+                </tr>
+
+            </thead>
+
+
+            <tbody>
+
+                {% for row in work_data %}
+
+                <tr>
+
+                    <td>{{ row[0] }}</td>
+
+                    <td>{{ row[1] }}</td>
+
+                    <td>{{ row[2] }}</td>
+
+                    <td>{{ row[3] }}</td>
+
+                    <td>{{ row[4] }}</td>
+
+                    <td>{{ row[5] }}</td>
+
+                    <td>{{ row[6] }}</td>
+
+                    <td>{{ row[7] }}</td>
+
+                    <td>{{ row[8] }}</td>
+
+                    <td>{{ row[9] }}</td>
+
+                </tr>
+
+                {% endfor %}
+
+            </tbody>
+
+        </table>
+
+        {% else %}
+
+        <div class="empty">
+
+            No employee work records yet.
+
+        </div>
+
+        {% endif %}
+
+    </div>
+
+</div>
+
+</body>
+
+</html>
